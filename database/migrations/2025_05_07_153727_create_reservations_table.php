@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('user_id');
             $table->datetime('start_date');
             $table->datetime('end_date');
             $table->integer('simple');
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->double('discount', 8, 2);
             $table->double('total', 8, 2);
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
