@@ -12,10 +12,10 @@ class Room extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'num_room',
-        'type',
-        'floor',
-        'status',
+        "num_room",
+        "type",
+        "floor",
+        "status",
     ];
     /** assignments */
     public function assignments()
