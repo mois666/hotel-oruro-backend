@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('room_id');
+            $table->unsignedBigInteger('reservation_id');
+            $table->unsignedBigInteger('client_id');
+            $table->integer('key_room');
             $table->timestamps();
         });
     }

@@ -10,8 +10,10 @@ Table users {
 Table rooms {
   id int
   num_room int
-  bed_quantity int
   type varchar
+  floor int
+  status bool
+  price int
 }
 
 Table clients {
@@ -26,11 +28,11 @@ Table reservation {
   client_id int
   start_date datetime
   end_date datetime
-  simple bool
-  double bool
-  state  bool
-  discount int
-  total int
+  simple int
+  double int
+  state  varchar
+  discount double
+  total double
 }
 
 Table assignments {
@@ -38,5 +40,5 @@ Table assignments {
   room_id int
   reservation_id int
   client_id int
-  key_room bool
+  key_room int -- 0 si la llave no esta entredado, 1 si esta entredado, 2 si esta devuelta
 }
