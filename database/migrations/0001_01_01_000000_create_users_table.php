@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('last_name',50);
             $table->string('role', 60);
+            $table->string('avatar')->nullable();
+            $table->string('status', 60)->default('activo');
             $table->rememberToken();
             $table->timestamps();
         });

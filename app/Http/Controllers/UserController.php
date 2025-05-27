@@ -29,8 +29,8 @@ class UserController extends Controller
         $data = $request->validated();
 
         $data['password'] = Hash::make($request->password);
-        $data['role'] = 'user' ;
-        //$data['status'] = 'activo';
+        $data['role'] = $request->role;
+        $data['status'] = $request->status;
 
         if($request->avatar != null){
             $url = FileStorage::upload($request->avatar, $this::FOLDER_PATH);
@@ -71,6 +71,8 @@ class UserController extends Controller
     {
         $data = $request->validated();
         $user = User::find($id);
+        $data['role'] = $request->role;
+        $data['status'] = $request->status;
         if($request->avatar != null && $request->avatar != $user->avatar){
             FileStorage::delete($user->avatar, $user->avatar_key);
             $url = FileStorage::upload($request->avatar, $this::FOLDER_PATH);

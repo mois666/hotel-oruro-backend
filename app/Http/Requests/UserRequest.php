@@ -27,12 +27,13 @@ class UserRequest extends FormRequest
             "last_name" => "required|string|max:255",
             "email" => "required|string|email|max:255|unique:users",
             "password" => "required|string|min:6",
-            "role" => "required|string",     ];
+            "role" => "required|string",
+            "status" => "required|string|max:255",
+        ];
         }else{
             return [
                 "name" => "required|string|max:255",
                 "email" => "required|string|email|max:255",
-                "phone" => "required|string|max:255",
                 "password" => "required|string|min:6",
                 "role" => "required|string",
                 "last_name" => "required|string|max:255",
