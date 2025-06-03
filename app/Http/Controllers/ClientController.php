@@ -23,6 +23,7 @@ class ClientController extends Controller
     public function store(ClientRequest $request)
     {
         $data = $request->validated();
+        $data['ci'] = $request->ci;
         $client = Client::create($data);
         return response()->json([
             'message' => 'Cliente creado correctamente',
@@ -45,6 +46,7 @@ class ClientController extends Controller
     public function update(ClientRequest $request, string $id)
     {
         $data = $request->validated();
+        $data['ci'] = $request->ci;
         $client = Client::find($id);
         $client->update($data);
         return response()->json([

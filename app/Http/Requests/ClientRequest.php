@@ -24,7 +24,7 @@ class ClientRequest extends FormRequest
         return [
             "name" => "required",
             "last_name" => "required",
-            "ci" => "required|unique:clients,ci",
+            //"ci" => "required|unique:clients,ci",
         ];
     }
     public function messages(): array
