@@ -60,6 +60,14 @@ class UserRequest extends FormRequest
             "email.string" => "El email debe ser una cadena de texto.",
             "email.email" => "El email debe ser un email válido.",
             "email.max" => "El email debe tener máximo 255 caracteres.",
+            "email.unique" => "El email ya existe.",
+            "password.required" => "La contraseña es requerida.",
+            "password.string" => "La contraseña debe ser una cadena de texto.",
+            "password.min" => "La contraseña debe tener al menos 6 caracteres.",
+            "role.required" => "El rol es requerido.",
+            "role.string" => "El rol debe ser una cadena de texto.",
+            "status.required" => "El estado es requerido.",
+            "status.string" => "El estado debe ser una cadena de texto.",
 
         ];
     }

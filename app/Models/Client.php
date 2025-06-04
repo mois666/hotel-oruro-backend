@@ -14,11 +14,11 @@ class Client extends Model
     protected $fillable = [
         'room_id',
         'ci',
+        'phone',
         'name',
         'last_name',
         'start_date',
         'end_date',
-        'state',
         'discount',
         'total',
     ];

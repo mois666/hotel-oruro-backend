@@ -14,6 +14,7 @@ class RoomController extends Controller
     public function index()
     {
         $rooms = Room::orderBy('id', 'desc')->get();
+
         return response()->json($rooms);
     }
 

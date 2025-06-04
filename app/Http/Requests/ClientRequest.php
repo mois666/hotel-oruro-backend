@@ -23,11 +23,12 @@ class ClientRequest extends FormRequest
     {
         return [
             'room_id' => 'required',
-            'ci' => 'required',
+            'phone' => 'required',
             'name' => 'required',
             'last_name' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
+            'discount' => 'required',
             'total' => 'required',
         ];
     }
@@ -35,11 +36,12 @@ class ClientRequest extends FormRequest
     {
         return [
             "room_id.required" => "El campo room_id es requerido",
-            "ci.required" => "El campo ci es requerido",
+            "phone.required" => "El campo phone es requerido",
             "name.required" => "El campo name es requerido",
             "last_name.required" => "El campo last_name es requerido",
             "start_date.required" => "El campo start_date es requerido",
             "end_date.required" => "El campo end_date es requerido",
+            "discount.required" => "El campo discount es requerido",
             "total.required" => "El campo total es requerido",
         ];
     }

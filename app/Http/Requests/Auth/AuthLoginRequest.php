@@ -23,7 +23,7 @@ class AuthLoginRequest extends FormRequest
     {
         return [
             "email" => "required|email|exists:users,email",
-            "password" => "required",
+            "password" => "required|min:6",
         ];
     }
 
@@ -33,7 +33,9 @@ class AuthLoginRequest extends FormRequest
             "email.required" => "El campo email es requerido",
             "email.email" => "Ingrese un email correcto",
             "email.exists" => "El correo electrónico no se encontró",
-            "password.required" => "La contraseña es requerida"
+            "password.required" => "La contraseña es requerida",
+            "password.min" => "La contraseña debe tener al menos 6 caracteres"
+
         ];
     }
 }

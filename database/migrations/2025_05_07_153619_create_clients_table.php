@@ -18,9 +18,9 @@ return new class extends Migration
             $table->integer('ci');
             $table->string('name', 20);
             $table->string('last_name', 20);
+            $table->string('phone', 20);
             $table->datetime('start_date');
             $table->datetime('end_date');
-            $table->string('state', 20);
             $table->double('discount', 8, 2);
             $table->double('total', 8, 2);
             

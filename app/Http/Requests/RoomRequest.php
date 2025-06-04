@@ -23,7 +23,7 @@ class RoomRequest extends FormRequest
     {
         if ($this->method() == 'POST') {
         return [
-            "num" => "required",
+            "number" => "required",
             "type" => "required",
             "floor" => "required",
             "status" => "required",
@@ -31,7 +31,7 @@ class RoomRequest extends FormRequest
         ];
         }else{
             return [
-                "num" => "",
+                "number" => "",
                 "type" => "",
                 "floor" => "",
                 "status" => "",
@@ -42,7 +42,7 @@ class RoomRequest extends FormRequest
     public function messages(): array
     {
         return [
-            "num.required" => "El campo num es requerido",
+            "number.required" => "El campo numero es requerido",
             "type.required" => "El campo type es requerido",
             "floor.required" => "El campo floor es requerido",
             "status.required" => "El campo status es requerido",

@@ -12,7 +12,7 @@ class Room extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        "num",
+        "number",
         "type",
         "floor",
         "status",

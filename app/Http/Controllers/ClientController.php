@@ -20,14 +20,14 @@ class ClientController extends Controller
                 'documentId' => $client->ci,
                 'firstName' => $client->name,
                 'lastName' => $client->last_name,
-                'phone' => '555-1234',
-                'roomType' => 'DOUBLE',
-                'roomNumber' => 203,
-                'floor' => 2,
-                'checkIn' => '2023-01-01',
-                'checkOut' => '2023-01-02',
-                'discount' => 10,
-                'total' => 540,
+                'phone' => $client->phone,
+                'roomType' => $client->room->type,
+                'roomNumber' => $client->room->number,
+                'floor' => $client->room->floor,
+                'checkOut' => $client->end_date,
+                'checkIn' => $client->start_date,
+                'discount' => $client->discount,
+                'total' => $client->total,
             ];
         });
 
@@ -41,6 +41,7 @@ class ClientController extends Controller
     {
         $data = $request->validated();
         $data['ci'] = $request->ci;
+        $data['discount'] = $request->discount;
         $client = Client::create($data);
         return response()->json([
             'message' => 'Cliente creado correctamente',
