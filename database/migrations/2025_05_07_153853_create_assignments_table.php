@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('reservation_id');
             $table->integer('key_room');
             $table->string('name', 50);
-            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
+            //$table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
 
             $table->timestamps();

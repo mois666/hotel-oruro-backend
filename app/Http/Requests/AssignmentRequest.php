@@ -26,6 +26,7 @@ class AssignmentRequest extends FormRequest
             "user_id" => "required",
             "key_room" => "required",
             "name" => "required",
+            "price" => "required",
         ];
     }
     public function messages(): array
@@ -35,6 +36,7 @@ class AssignmentRequest extends FormRequest
             "user_id.required" => "El campo user_id es requerido",
             "key_room.required" => "El campo key_room es requerido",
             "name.required" => "El campo name es requerido",
+            "price.required" => "El campo price es requerido",
         ];
     }
 }

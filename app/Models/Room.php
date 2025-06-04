@@ -12,14 +12,15 @@ class Room extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        "num_room",
+        "num",
         "type",
         "floor",
         "status",
+        "price",
     ];
-    /** assignments */
-    public function assignments()
+    /** Clients */
+    public function clients()
     {
-        return $this->hasMany(Assignment::class);
+        return $this->hasMany(Client::class);
     }
 }

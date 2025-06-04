@@ -12,13 +12,24 @@ class Client extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'room_id',
+        'ci',
         'name',
         'last_name',
-        'ci',
+        'start_date',
+        'end_date',
+        'state',
+        'discount',
+        'total',
     ];
-        /**** reservacioines */
-        public function reservations()
-        {
-            return $this->hasMany(Reservation::class);
-        }
+    /**** reservacioines */
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+    /** rooms */
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

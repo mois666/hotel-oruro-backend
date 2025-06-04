@@ -13,7 +13,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $rooms = Room::all();
+        $rooms = Room::orderBy('id', 'desc')->get();
         return response()->json($rooms);
     }
 
@@ -42,7 +42,7 @@ class RoomController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(RoomRequest $request, string $id)
     {
         $data = $request->validated();
         $room = Room::find($id);

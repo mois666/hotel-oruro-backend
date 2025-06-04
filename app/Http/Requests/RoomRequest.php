@@ -21,20 +21,32 @@ class RoomRequest extends FormRequest
      */
     public function rules(): array
     {
+        if ($this->method() == 'POST') {
         return [
-            "num_room" => "required",
+            "num" => "required",
             "type" => "required",
             "floor" => "required",
             "status" => "required",
+            "price" => "required",
         ];
+        }else{
+            return [
+                "num" => "",
+                "type" => "",
+                "floor" => "",
+                "status" => "",
+                "price" => "",
+            ];
+        }
     }
     public function messages(): array
     {
         return [
-            "num_room.required" => "El campo num_room es requerido",
+            "num.required" => "El campo num es requerido",
             "type.required" => "El campo type es requerido",
             "floor.required" => "El campo floor es requerido",
             "status.required" => "El campo status es requerido",
+            "price.required" => "El campo price es requerido",
         ];
     }
 }
