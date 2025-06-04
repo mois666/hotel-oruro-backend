@@ -13,8 +13,25 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
-        return response()->json($clients);
+        $data = Client::all();
+        $clientes = $data->map(function ($client) {
+            return [
+                'id' => $client->id,
+                'documentId' => $client->ci,
+                'firstName' => $client->name,
+                'lastName' => $client->last_name,
+                'phone' => '555-1234',
+                'roomType' => 'DOUBLE',
+                'roomNumber' => 203,
+                'floor' => 2,
+                'checkIn' => '2023-01-01',
+                'checkOut' => '2023-01-02',
+                'discount' => 10,
+                'total' => 540,
+            ];
+        });
+
+        return response()->json($clientes);
     }
 
     /**
