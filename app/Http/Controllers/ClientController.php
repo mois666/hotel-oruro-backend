@@ -15,6 +15,11 @@ class ClientController extends Controller
     public function index()
     {
         $data = Client::all();
+        if ($data->isEmpty()) {
+            return response()->json([
+                'message' => 'No hay clientes'
+            ], 404);
+        }
         $clientes = $data->map(function ($client) {
             return [
                 'id' => $client->id,
@@ -63,6 +68,15 @@ class ClientController extends Controller
     public function show(string $id)
     {
         $client = Client::find($id);
+        if ($client == null) {
+            return response()->json([
+                'message' => 'Cliente no encontrado.'
+            ], 404);
+        }
+
+        /* $client['room'] = $client->room->number;
+        $client['type'] = $client->room->type; */
+
         return response()->json($client);
     }
 
