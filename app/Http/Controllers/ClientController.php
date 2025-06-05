@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -43,6 +44,13 @@ class ClientController extends Controller
         $data['ci'] = $request->ci;
         $data['discount'] = $request->discount;
         $client = Client::create($data);
+
+
+        /* Desabilitar habitacion */
+        $room = Room::find($request->room_id);
+        $room->status = 'occupied';
+        $room->save();
+
         return response()->json([
             'message' => 'Cliente creado correctamente',
             'client' => $client
@@ -79,6 +87,12 @@ class ClientController extends Controller
     public function destroy(string $id)
     {
         $client = Client::find($id);
+
+        /* Habilitar habitacion */
+        $room = Room::find($client->room_id);
+        $room->status = 'available';
+        $room->save();
+
         $client->delete();
         return response()->json([
             'message' => 'Cliente eliminado correctamente',
